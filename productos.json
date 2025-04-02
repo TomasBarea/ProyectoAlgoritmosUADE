@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1, 
+        "nombre": "Nike air force 1",
+        "marca": "Nike",
+        "precio": 120,
+        "imagen": "",
+        "descripcion": "--"
+    },
+    
+    {
+        "id": 2, 
+        "nombre": "Nike air force 1",
+        "marca": "Nike",
+        "precio": 120,
+        "imagen": "",
+        "descripcion": "--"
+
+    },
+
+    {
+        "id": 3, 
+        "nombre": "Adidas ultraboost",
+        "marca": "adidas",
+        "precio": 100,
+        "imagen": "",
+        "descripcion": "--"
+    },
+
+    {
+        "id": 4, 
+        "nombre": "Nike jordan 4 ",
+        "marca": "Nike",
+        "precio": 200,
+        "imagen": "",
+        "descripcion": "--"
+    },
+
+    {
+        "id": 5, 
+        "nombre": "adidas samba",
+        "marca": "adidas",
+        "precio": 120,
+        "imagen": "",
+        "descripcion": "--"
+    },
+
+    {
+        "id": 6, 
+        "nombre": "Vans knu skool",
+        "marca": "vans",
+        "precio": 120,
+        "imagen": "",
+        "descripcion": "--"
+    },
+
+    {
+        "id": 7, 
+        "nombre": "yeezy boost 700 wave runner",
+        "marca": "adidas",
+        "precio": 400,
+        "imagen": "",
+        "descripcion": "--"
+    },
+
+    {
+        "id": 8, 
+        "nombre": "Puma suede xl",
+        "marca": "puma",
+        "precio": 300,
+        "imagen": "",
+        "descripcion": "--"
+    },
+
+    {
+        "id": 9, 
+        "nombre": "Nike dunk panda",
+        "marca": "nike",
+        "precio": 120,
+        "imagen": "",
+        "descripcion": "--"
+    }
+]
