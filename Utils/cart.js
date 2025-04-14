@@ -24,7 +24,7 @@ function mostrarProductos() {
     const div = document.createElement("div");
     div.innerHTML = `
     <div>
-        <img src="../img/${p.image}" width="200">
+       <img src="${p.imagen}" alt="${p.nombre}">
         <p>${p.nombre} </p>
         <p> $${p.precio}</p>
         <button onclick="agregarAlCarrito(${p.id})">Agregar al carrito</button>
