@@ -4,8 +4,8 @@
         "nombre": "Nike air force 1",
         "marca": "Nike",
         "precio": 120,
-        "imagen": "",
-        "descripcion": "--"
+        "imagen": "./img/photo-1552346154-21d32810aba3.jpeg",
+        "descripcion": ""
     },
     
     {
