@@ -9,13 +9,14 @@ const closeSidebar = document.querySelector(".close-sidebar");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 
-fetch("productos.json")
+fetch("/static/productos.json")
   .then(res => res.json())
   .then(data => {
     productos = data;
     mostrarProductos();
   })
   .catch(err => console.error("Error cargando productos:", err));
+
 
 function mostrarProductos() {
   productosContainer.innerHTML = ""; 
@@ -43,22 +44,28 @@ function agregarAlCarrito(id) {
   }
 }
 
-cartIcon.onclick = () => {
-  renderCart();
-  cartSidebar.style.display = "block";
-};
+if (cartIcon) {
+  cartIcon.onclick = () => {
+    renderCart();
+    if (cartSidebar) cartSidebar.style.display = "block";
+  };
+}
 
-closeSidebar.onclick = () => {
-  cartSidebar.style.display = "none";
-};
+if (closeSidebar) {
+  closeSidebar.onclick = () => {
+    if (cartSidebar) cartSidebar.style.display = "none";
+  };
+}
 
 window.onclick = function (e) {
-  if (!cartSidebar.contains(e.target) && e.target !== cartIcon && !cartIcon.contains(e.target)) {
+  if (cartSidebar && !cartSidebar.contains(e.target) && e.target !== cartIcon && !cartIcon?.contains(e.target)) {
     cartSidebar.style.display = "none";
   }
 };
 
 function renderCart() {
+  if (!cartItems || !cartTotal) return;
+
   cartItems.innerHTML = "";
   let total = 0;
   cart.forEach(item => {
@@ -71,13 +78,16 @@ function renderCart() {
 }
 
 function actualizarContador() {
-  cartCount.textContent = cart.length;
-  cartCount.style.display = cart.length > 0 ? "inline-block" : "none";
+  if (cartCount) {
+    cartCount.textContent = cart.length;
+    cartCount.style.display = cart.length > 0 ? "inline-block" : "none";
+  }
 }
 
 // Filtro de productos
-
 function mostrarProductosFiltrados(filtrados) {
+  if (!productosContainer) return;
+
   productosContainer.innerHTML = "";
   if (filtrados.length === 0) {
     productosContainer.innerHTML = "<p>No se encontraron productos en ese rango de precio.</p>";
@@ -99,14 +109,37 @@ function mostrarProductosFiltrados(filtrados) {
 }
 
 function filtrar() {
-  const max = document.getElementById("filtroPrecio").value;
+  const maxInput = document.getElementById("filtroPrecio");
+  if (!maxInput) return;
+
+  const max = maxInput.value;
   fetch(`/filtrar?precio=${max}`)
     .then(res => res.json())
     .then(data => mostrarProductosFiltrados(data))
     .catch(err => console.error("Error al filtrar:", err));
 }
 
-
 function mostrarTodos() {
-  mostrarProductos(); 
+  if (productosContainer) mostrarProductos(); 
+}
+
+// Cálculo de envío
+const matrizCostos = [1000, 1500, 2500, 4000];
+
+function calcularEnvio() {
+  const zonaSelect = document.getElementById("zonaSelect");
+  const envioTotal = document.getElementById("envioTotal");
+  const totalFinal = document.getElementById("totalFinal");
+  const totalProductos = document.getElementById("cartTotal");
+
+  if (!zonaSelect || !envioTotal || !totalFinal || !totalProductos) return;
+
+  const zona = zonaSelect.value;
+  const costoEnvio = matrizCostos[zona] || 0;
+  const totalCarrito = parseFloat(totalProductos.textContent) || 0;
+
+  const total = totalCarrito + costoEnvio;
+
+  envioTotal.textContent = costoEnvio;
+  totalFinal.textContent = total;
 }

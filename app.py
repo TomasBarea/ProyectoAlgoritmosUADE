@@ -21,9 +21,8 @@ def utils(filename): return send_from_directory('Utils', filename)
 # @app.route('/static/img/path:filename') 
 # def img(filename): return send_from_directory('img', filename)
 
-@app.route('/productos.json') 
+@app.route('/static/productos.json') 
 def productos(): return send_from_directory('.', 'productos.json')
-
 
 @app.route('/filtrar', methods=['GET']) 
 def filtrar(): 
