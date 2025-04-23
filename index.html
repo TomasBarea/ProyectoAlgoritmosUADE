@@ -21,7 +21,7 @@
         <ul class="items">
             <li><a>Usuario</a></li>
             <li> <div id="cartContainer" style="position: relative; display: inline-block;">
-                <img src="/img/shopping-cart_4058250.png" id="cartIcon" alt="Carrito" style="width: 30px; cursor: pointer;">
+                <img src="/static/img/shopping-cart_4058250.png" id="cartIcon" alt="Carrito" style="width: 30px; cursor: pointer;">
                 <span id="cartCount" style="
                   position: absolute;
                   top: -8px;
@@ -39,18 +39,18 @@
     </nav>
 
     <section class="portada">
-        <img src="/img/photo-1552346154-21d32810aba3.jpeg">
+        <img src="/static/img/photo-1552346154-21d32810aba3.jpeg">
     </section>
     
     <section class="filtro-precio" style="margin: 20px 0;"> <label for="filtroPrecio">Filtrar por precio (máximo): $</label>
-        <input type="number" id="filtroPrecio" placeholder="Ej: 80000">
+        <input type="number" id="filtroPrecio" placeholder="Ej: 800">
         <button onclick="filtrar()">Filtrar</button>
     </section> 
-    <div id="productosFiltrados" style="display: grid; gap: 20px;"></div>
-
-
+    <!-- <div id="productosFiltrados" style="display: grid; gap: 20px;"></div> -->
 
     <div id="productosContainer"></div>
+    <button onclick="mostrarTodos()">Mostrar todos</button>
+
 
     <div id="cartSidebar" class="cart-sidebar">
         <div class="cart-header">
@@ -73,6 +73,6 @@
                 <p>HYPE RESELLERS</p>
             </div>
     </footer>
-    <script src="./Static/cart.js"></script>
+    <script src="/static/cart.js"></script>
 </body>
 </html>
