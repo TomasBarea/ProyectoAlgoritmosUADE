@@ -12,11 +12,10 @@ def index(): return send_from_directory('.', 'index.html')
 
 @app.route('/Pages/<path:filename>')
 def pages(filename): return send_from_directory('Pages', filename)
+
 # @app.route('/styles/path:filename')
 # def styles(filename): return send_from_directory('Styles', filename)
 
-@app.route('/Utils/path:filename') 
-def utils(filename): return send_from_directory('Utils', filename)
 
 # @app.route('/static/img/path:filename') 
 # def img(filename): return send_from_directory('img', filename)

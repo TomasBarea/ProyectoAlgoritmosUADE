@@ -12,10 +12,10 @@ const cartTotal = document.getElementById("cartTotal");
 fetch("/static/productos.json")
   .then(res => res.json())
   .then(data => {
-    productos = data;
-    mostrarProductos();
+    console.log("Productos cargados:", data);
   })
   .catch(err => console.error("Error cargando productos:", err));
+
 
 
 function mostrarProductos() {
