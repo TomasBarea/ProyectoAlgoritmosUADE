@@ -201,3 +201,50 @@ display: flex;
 .tituloFooter p {
     margin: 10px;
 }
+
+
+
+/*-------------------PRODUCTOS-----------*/
+
+#productos{
+    
+    img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+
+
+
+/* ------------------CARRITO------------ */
+
+
+.cart-sidebar {
+    position: fixed;
+    top: 60px; 
+    right: 10px;
+    width: 300px;
+    max-height: 80vh;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+    overflow-y: auto;
+  }
+  
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .close-sidebar {
+    cursor: pointer;
+    font-size: 24px;
+    color: #666;
+  }
+  
