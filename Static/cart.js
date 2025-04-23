@@ -32,7 +32,7 @@ function mostrarProductos() {
       </div>
     `;
     productosContainer.appendChild(div);
-  });
+  }); 
 }
 
 function agregarAlCarrito(id) {
