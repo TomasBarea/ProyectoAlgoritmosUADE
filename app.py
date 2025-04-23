@@ -10,9 +10,8 @@ def index(): return send_from_directory('.', 'index.html')
 # @app.route('/static/style.css')
 # def indexcss(): return send_from_directory('.', 'style.css')
 
-@app.route('/Pages/path:filename')
+@app.route('/Pages/<path:filename>')
 def pages(filename): return send_from_directory('Pages', filename)
-
 # @app.route('/styles/path:filename')
 # def styles(filename): return send_from_directory('Styles', filename)
 
