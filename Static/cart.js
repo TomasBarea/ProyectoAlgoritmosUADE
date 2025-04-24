@@ -9,31 +9,34 @@ const closeSidebar = document.querySelector(".close-sidebar");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 
-fetch("/static/productos.json")
+fetch("/static/productos.json") 
   .then(res => res.json())
   .then(data => {
-    console.log("Productos cargados:", data);
+    productos = data;
+    mostrarProductos(); 
   })
   .catch(err => console.error("Error cargando productos:", err));
 
 
 
-function mostrarProductos() {
-  productosContainer.innerHTML = ""; 
-  productos.forEach(p => {
-    const div = document.createElement("div");
-    div.innerHTML = `
-      <div>
-        <img src="${p.imagen}" alt="${p.nombre}" style="width: 200px;">
-        <p>${p.nombre}</p>
-        <p>$${p.precio}</p>
-        <p>${p.descripcion}</p>
-        <button onclick="agregarAlCarrito(${p.id})">Agregar al carrito</button>
-      </div>
-    `;
-    productosContainer.appendChild(div);
-  });
-}
+  function mostrarProductos() {
+    if (!productosContainer) return; 
+    productosContainer.innerHTML = ""; 
+    productos.forEach(p => {
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <div>
+          <img src="${p.imagen}" alt="${p.nombre}" style="width: 200px;">
+          <p>${p.nombre}</p>
+          <p>$${p.precio}</p>
+          <p>${p.descripcion}</p>
+          <button onclick="agregarAlCarrito(${p.id})">Agregar al carrito</button>
+        </div>
+      `;
+      productosContainer.appendChild(div);
+    });
+  }
+  
 
 function agregarAlCarrito(id) {
   const producto = productos.find(p => p.id === id);
@@ -75,6 +78,9 @@ function renderCart() {
     total += item.precio;
   });
   cartTotal.textContent = total;
+
+  localStorage.setItem("montoCarrito", total);
+
 }
 
 function actualizarContador() {
@@ -83,6 +89,28 @@ function actualizarContador() {
     cartCount.style.display = cart.length > 0 ? "inline-block" : "none";
   }
 }
+
+function guardarTotal() {
+  const total = document.getElementById("cartTotal").textContent;
+  localStorage.setItem("carritoTotal", total);
+}
+
+const finalizarBtn = document.querySelector(".finalizar-compra-btn");
+if (finalizarBtn) {
+  finalizarBtn.addEventListener("click", () => {
+    localStorage.setItem("totalCarrito", cartTotal.textContent);
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const totalGuardado = localStorage.getItem("montoCarrito");
+  if (totalGuardado && document.getElementById("cartTotal")) {
+    document.getElementById("cartTotal").textContent = totalGuardado;
+  }
+});
+
+
 
 // Filtro de productos
 function mostrarProductosFiltrados(filtrados) {
@@ -124,22 +152,29 @@ function mostrarTodos() {
 }
 
 // Cálculo de envío
-const matrizCostos = [1000, 1500, 2500, 4000];
 
-function calcularEnvio() {
-  const zonaSelect = document.getElementById("zonaSelect");
-  const envioTotal = document.getElementById("envioTotal");
-  const totalFinal = document.getElementById("totalFinal");
-  const totalProductos = document.getElementById("cartTotal");
+if (window.location.pathname.includes("compras.html")) {
+  window.addEventListener("DOMContentLoaded", () => {
+ 
+    const totalGuardado = localStorage.getItem("totalCarrito");
+    if (totalGuardado) {
+      const cartTotalEl = document.getElementById("cartTotal");
+      if (cartTotalEl) {
+        cartTotalEl.textContent = totalGuardado;
+      }
+    }
 
-  if (!zonaSelect || !envioTotal || !totalFinal || !totalProductos) return;
 
-  const zona = zonaSelect.value;
-  const costoEnvio = matrizCostos[zona] || 0;
-  const totalCarrito = parseFloat(totalProductos.textContent) || 0;
+    const matrizCostos = [1000, 1500, 2500, 4000];
 
-  const total = totalCarrito + costoEnvio;
+    window.calcularEnvio = function () {
+      const zona = document.getElementById("zonaSelect").value;
+      const costoEnvio = matrizCostos[zona];
+      const totalCarrito = parseFloat(document.getElementById("cartTotal").textContent);
+      const totalFinal = totalCarrito + costoEnvio;
 
-  envioTotal.textContent = costoEnvio;
-  totalFinal.textContent = total;
+      document.getElementById("envioTotal").textContent = costoEnvio;
+      document.getElementById("totalFinal").textContent = totalFinal;
+    };
+  });
 }
