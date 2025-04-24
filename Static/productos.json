@@ -1,74 +1,74 @@
 [
-        {
-            "id": 1,
-            "nombre": "Nike Jordan 1 Mid dub zero",
-            "marca": "Nike",
-            "precio": 150,
-            "imagen": "/static/img/jordan1_json.webp",
-            "descripcion": "Una versión moderna de las Jordan 1 con detalles gráficos y estilo urbano."
-        },
-        {
-            "id": 2,
-            "nombre": "Nike SB dunk low Ben & Jerry's Chunky Dunky (Special Box)",
-            "marca": "Nike",
-            "precio": 1900,
-            "imagen": "/static/img/dunkSB_json.jpg",
-            "descripcion": "Colaboración única con Ben & Jerry’s, colorido diseño y packaging especial."
-        },
-        {
-            "id": 3,
-            "nombre": "Adidas yeezy boost 700 V3",
-            "marca": "adidas",
-            "precio": 100,
-            "imagen": "/static/img/adidas_json.webp",
-            "descripcion": "Zapatilla futurista con diseño minimalista y gran comodidad."
-        },
-        {
-            "id": 4,
-            "nombre": "Nike jordan 4 fire red 2020 ",
-            "marca": "Nike",
-            "precio": 200,
-            "imagen": "/static/img/Jordan4_json.webp",
-            "descripcion": "Clásicas Jordan 4 con el icónico color Fire Red, reeditadas en 2020."
-        },
-        {
-            "id": 5,
-            "nombre": "adidas Forum Bad Bunny",
-            "marca": "adidas",
-            "precio": 620,
-            "imagen": "/static/img/Forumbadb_json.jpg",
-            "descripcion": "Colaboración con Bad Bunny, mezcla de estilo retro y urbano moderno."
-        },
-        {
-            "id": 6,
-            "nombre": "Vans knu skool scar",
-            "marca": "vans",
-            "precio": 120,
-            "imagen": "/static/img/Vans_json.avif",
-            "descripcion": "Diseño clásico de Vans con detalles acolchados y estilo skater."
-        },
-        {
-            "id": 7,
-            "nombre": "Jordan 4 Black cat",
-            "marca": "Nike",
-            "precio": 400,
-            "imagen": "/static/img/Jordan4bc_json.jpg",
-            "descripcion": "Zapatillas completamente negras, elegantes y versátiles para cualquier ocasión."
-        },
-        {
-            "id": 8,
-            "nombre": "Nike air force 1 Travis scott",
-            "marca": "Nike",
-            "precio": 300,
-            "imagen": "/static/img/Airforce1_json.png",
-            "descripcion": "Edición especial con detalles removibles y estilo único de Travis Scott."
-        },
-        {
-            "id": 9,
-            "nombre": "Nike dunk Low Off-White Futura UNC",
-            "marca": "nike",
-            "precio": 5200,
-            "imagen": "/static/img/dunk_json.avif",
-            "descripcion": "Edición limitada diseñada por Virgil Abloh con estilo universitario."
-        }
-    ]
+    {
+        "id": 1,
+        "nombre": "Nike Jordan 1 Mid dub zero",
+        "marca": "Nike",
+        "precio": 150,
+        "imagen": "/static/img/jordan1_json.webp",
+        "descripcion": "Una versión moderna de las Jordan 1 con detalles gráficos y estilo urbano."
+    },
+    {
+        "id": 2,
+        "nombre": "Nike SB dunk low Ben & Jerry's Chunky Dunky (Special Box)",
+        "marca": "Nike",
+        "precio": 1900,
+        "imagen": "/static/img/dunkSB_json.jpg",
+        "descripcion": "Colaboración única con Ben & Jerry’s, colorido diseño y packaging especial."
+    },
+    {
+        "id": 3,
+        "nombre": "Adidas yeezy boost 700 V3",
+        "marca": "adidas",
+        "precio": 100,
+        "imagen": "/static/img/adidas_json.webp",
+        "descripcion": "Zapatilla futurista con diseño minimalista y gran comodidad."
+    },
+    {
+        "id": 4,
+        "nombre": "Nike jordan 4 fire red 2020 ",
+        "marca": "Nike",
+        "precio": 200,
+        "imagen": "/static/img/Jordan4_json.webp",
+        "descripcion": "Clásicas Jordan 4 con el icónico color Fire Red, reeditadas en 2020."
+    },
+    {
+        "id": 5,
+        "nombre": "adidas Forum Bad Bunny",
+        "marca": "adidas",
+        "precio": 620,
+        "imagen": "/static/img/Forumbadb_json.jpg",
+        "descripcion": "Colaboración con Bad Bunny, mezcla de estilo retro y urbano moderno."
+    },
+    {
+        "id": 6,
+        "nombre": "Vans knu skool scar",
+        "marca": "vans",
+        "precio": 120,
+        "imagen": "/static/img/Vans_json.avif",
+        "descripcion": "Diseño clásico de Vans con detalles acolchados y estilo skater."
+    },
+    {
+        "id": 7,
+        "nombre": "Jordan 4 Black cat",
+        "marca": "Nike",
+        "precio": 400,
+        "imagen": "/static/img/Jordan4bc_json.jpg",
+        "descripcion": "Zapatillas completamente negras, elegantes y versátiles para cualquier ocasión."
+    },
+    {
+        "id": 8,
+        "nombre": "Nike air force 1 Travis scott",
+        "marca": "Nike",
+        "precio": 300,
+        "imagen": "/static/img/Airforce1_json.png",
+        "descripcion": "Edición especial con detalles removibles y estilo único de Travis Scott."
+    },
+    {
+        "id": 9,
+        "nombre": "Nike dunk Low Off-White Futura UNC",
+        "marca": "nike",
+        "precio": 5200,
+        "imagen": "/static/img/dunk_json.avif",
+        "descripcion": "Edición limitada diseñada por Virgil Abloh con estilo universitario."
+    }
+]
