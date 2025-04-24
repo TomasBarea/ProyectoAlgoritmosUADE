@@ -50,5 +50,43 @@ def validar():
 
     return jsonify({"mensaje": "Datos válidos ✅"})
 
+
+@app.route('/cart', methods=['POST', 'GET', 'DELETE'])
+def cart():
+    try:
+        cart = []
+
+        if request.method == 'POST':
+          
+            item = request.json.get('item')
+            if not item:
+                raise ValueError("No item provided")
+            cart.append(item)
+            return jsonify({"message": "Item added to cart", "cart": cart}), 200
+
+        elif request.method == 'GET':
+            
+            return jsonify({"cart": cart}), 200
+
+        elif request.method == 'DELETE':
+           
+            item = request.json.get('item')
+            if not item:
+                raise ValueError("No item provided")
+            if item not in cart:
+                raise ValueError("Item not found in cart")
+            cart.remove(item)
+            return jsonify({"message": "Item removed from cart", "cart": cart}), 200
+
+        else:
+            return jsonify({"error": "Invalid method"}), 405
+
+    except ValueError as ve:
+        return jsonify({"error": str(ve)}), 400
+    except Exception as e:
+        return jsonify({"error": "An unexpected error occurred", "details": str(e)}), 500
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
