@@ -43,13 +43,13 @@
     </section>
     
     <section class="filtro-precio" style="margin: 20px 0;"> <label for="filtroPrecio">Filtrar por precio (máximo): $</label>
-        <input type="number" id="filtroPrecio" placeholder="Ej: 800">
+        <input type="number" id="filtroPrecio" placeholder="Ejemplo: 800">
         <button onclick="filtrar()">Filtrar</button>
     </section> 
     <!-- <div id="productosFiltrados" style="display: grid; gap: 20px;"></div> -->
 
     <div id="productosContainer"></div>
-    <button onclick="mostrarTodos()">Mostrar todos</button>
+    <button onclick="mostrarTodos()" class="botonMostrar">Mostrar todos</button>
 
 
     <div id="cartSidebar" class="cart-sidebar">
@@ -59,15 +59,14 @@
         </div>
         <ul id="cartItems"></ul>
         <p>Total: $<span id="cartTotal">0</span></p>
-        <a href="/Pages/compras.html" onclick="guardarTotal()"> 
-            <button class="finalizar-compra-btn"></button>>Finalizar compra!</button> 
-        </a>
+        
+        <a href="/Pages/compras.html" onclick="guardarTotal()" class="finalizarCompra"><button class="finalizar-compra-btn"> Finalizar compra!</button> </a>
+        
       </div>
 
     <footer>
             <ul class="footerLinks">
                 <li>Home</li>
-                <li>Productos</li>
                 <li>Sobre Nosotros</li>
                 <li>Contacto</li>
             </ul>

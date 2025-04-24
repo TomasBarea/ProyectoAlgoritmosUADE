@@ -25,11 +25,11 @@ fetch("/static/productos.json")
     productos.forEach(p => {
       const div = document.createElement("div");
       div.innerHTML = `
-        <div>
+        <div class="boxProducto">
           <img src="${p.imagen}" alt="${p.nombre}" style="width: 200px;">
-          <p>${p.nombre}</p>
+          <p class= "nombreProducto">${p.nombre}</p>
           <p>$${p.precio}</p>
-          <p>${p.descripcion}</p>
+          <p class= "descripcionProducto">${p.descripcion}</p>
           <button onclick="agregarAlCarrito(${p.id})">Agregar al carrito</button>
         </div>
       `;
@@ -124,7 +124,7 @@ function mostrarProductosFiltrados(filtrados) {
 
   filtrados.forEach(prod => {
     const card = document.createElement("div");
-    card.className = "producto-card";
+    card.className = "boxProducto";
     card.innerHTML = `
       <img src="${prod.imagen}" alt="${prod.nombre}" style="width: 200px;">
       <h3>${prod.nombre}</h3>
@@ -146,6 +146,7 @@ function filtrar() {
     .then(data => mostrarProductosFiltrados(data))
     .catch(err => console.error("Error al filtrar:", err));
 }
+
 
 function mostrarTodos() {
   if (productosContainer) mostrarProductos(); 

@@ -14,7 +14,7 @@
     }
     
     
-    nav{
+    /* nav{
     
     padding: 1.5rem 3rem;
     display: flex;
@@ -68,7 +68,9 @@
         font-weight: 300;
         color: #666;
     
-    }
+    } */
+
+    
     
     .contacto {
         
@@ -143,6 +145,7 @@
         letter-spacing: 2px;
         cursor: pointer;
         transition: background-color 0.3s;
+        height: 30px;
     
     }
     
@@ -206,3 +209,113 @@
         letter-spacing: 1px;
         text-transform: uppercase;
     }
+
+
+    .nav {
+        background-color: rgb(252, 252, 252);
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        font-size: 16px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        border-bottom: 1px solid #cccccc;
+        height: 60px;
+    }
+    
+    
+    .portada img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+    }
+    
+    
+    
+    .links {
+     /* width: 20%; */
+     display: flex;
+     list-style-type: none;
+     padding: 0;
+     justify-content: space-between;
+     margin-top: 8px;
+    }
+    
+    .links li {
+        margin-top: 10px;
+        margin-left: 10px;
+        
+        
+    }
+    
+    .links li a {
+        text-decoration: none;
+        color: #000000;
+        padding: 10px;
+        padding-left: 20px;
+        border-radius: 4px;
+    }
+    
+    .links li a:hover {
+        color:  #696969;
+        transition: 0.7s ease;
+    
+    }
+    
+    
+    .titulo {
+        width: 30%;
+        color: #131313;
+        font-size: 40px;
+        font-family: "Boldonse", system-ui;
+        margin: 0;
+    }
+    
+
+
+
+
+
+    .items {
+        width: 15%;
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        justify-content: space-around;
+        margin: 8px;
+        
+    
+    }
+    
+    .items li {
+        margin-top: 10px;
+    }
+    
+    
+    .items li a {
+        text-decoration: none;
+        color: #000000;
+        padding: 20px;
+    
+    }
+    
+    .items li a:hover {
+        color:  #696969;
+        transition: 0.7s ease;
+    
+    }
+    
+    
+    .items img {
+        width: 35px;
+        height: 35px;
+    margin: -5px;
+    }
+    
+    .items li a img {
+        margin-top: 0px;
+    }
+
+
+
+
+    
