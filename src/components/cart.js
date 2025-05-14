@@ -9,7 +9,7 @@ const closeSidebar = document.querySelector(".close-sidebar");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 
-fetch("/static/productos.json") 
+fetch("../productos.json") 
   .then(res => res.json())
   .then(data => {
     productos = data;
@@ -150,7 +150,7 @@ function mostrarTodos() {
   if (productosContainer) mostrarProductos(); 
 }
 
-// Cálculo de envío
+// Cálculo de envío -----------------------------------------------------------------------------
 
 if (window.location.pathname.includes("compras.html")) {
   window.addEventListener("DOMContentLoaded", () => {

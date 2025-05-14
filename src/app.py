@@ -5,17 +5,17 @@ import re
 
 app = Flask(__name__)
 
-@app.route('/index.html')
+@app.route('/Home.jsx')
 def index():
-    return send_from_directory('.', 'index.html')
+    return send_from_directory('.', 'Home.jsx')
 
-@app.route('/Styles/<path:filename>')
+@app.route('/styles/<path:filename>')
 def styles(filename):  
-    return send_from_directory('Styles', filename)
+    return send_from_directory('styles', filename)
 
-@app.route('/Pages/<path:filename>')
+@app.route('/pages/<path:filename>')
 def pages(filename):
-    return send_from_directory('Pages', filename)
+    return send_from_directory('pages', filename)
 
 @app.route('/filtrar', methods=['GET'])
 def filtrar():

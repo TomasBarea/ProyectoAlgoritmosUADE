@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Iniciar Sesión</title>
-    <script>
-        async function validarFormulario(event) {
+import React from 'react'
+
+const Login = () => {
+       async function validarFormulario(event) {
             event.preventDefault(); 
             const usuario = document.getElementById('usuario').value;
             const clave = document.getElementById('clave').value;
@@ -22,20 +19,21 @@
                 window.location.href = "../index.html";
             }
         }
-    </script>
-</head>
-<body>
-    <div class="contenedorr-login">
+
+
+  return (
+    <>
+         <div class="contenedorr-login">
         <h2>Iniciar Sesión</h2>
         <form onsubmit="validarFormulario(event)" class="formulario-login">
             <div class="campo">
                 <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
+                <input type="text" id="usuario" name="usuario" required/>
             </div>
 
             <div class="campo">
                 <label for="clave">Contraseña:</label>
-                <input type="password" id="clave" name="clave" required>
+                <input type="password" id="clave" name="clave" required/>
             </div>
 
             <button type="submit" class="boton">Entrar</button>
@@ -45,5 +43,8 @@
             ¿No tenés cuenta? <a href="registro.html">Registrate acá</a>
         </p>
     </div>
-</body>
-</html>
+    </>
+  )
+}
+
+export default Login

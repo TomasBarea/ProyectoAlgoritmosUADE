@@ -16,18 +16,6 @@ body {
 }
 
 
-nav {
-    padding: 1.5rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    border-bottom: 1px solid #e0e0e0;
-    background-color: white;
-    z-index: 100;
-}
 
 nav h4 {
     font-size: 1.8rem;
