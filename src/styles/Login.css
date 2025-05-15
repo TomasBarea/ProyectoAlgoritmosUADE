@@ -1,0 +1,9 @@
+.contenedor-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  height: 100vh;
+
+  color: black;
+}

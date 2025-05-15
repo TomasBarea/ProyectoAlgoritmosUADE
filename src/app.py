@@ -1,9 +1,11 @@
 from flask import Flask, send_from_directory, jsonify, request
+from flask_cors import CORS
 import json
 import os
 import re  
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/Home.jsx')
 def index():
@@ -21,7 +23,7 @@ def pages(filename):
 def filtrar():
     try:
         max_precio = float(request.args.get('precio', 0))
-        file_path = os.path.join('static', 'productos.json')  #
+        file_path = os.path.join('src', 'productos.json')  
         with open(file_path, encoding='utf-8') as f:
             productos = json.load(f)
         filtrados = list(filter(lambda p: p['precio'] < max_precio, productos))

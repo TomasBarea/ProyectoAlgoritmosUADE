@@ -1,50 +1,55 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import '../styles/Login.css';
 
 const Login = () => {
-       async function validarFormulario(event) {
-            event.preventDefault(); 
-            const usuario = document.getElementById('usuario').value;
-            const clave = document.getElementById('clave').value;
+    const navigate = useNavigate();
 
-          
-            const response = await fetch(`/validar?usuario=${encodeURIComponent(usuario)}&clave=${encodeURIComponent(clave)}`);
-            const data = await response.json();
+    async function validarFormulario(event) {
+        event.preventDefault(); 
+        const usuario = document.getElementById('usuario').value;
+        const clave = document.getElementById('clave').value;
 
-            if (response.status === 400) {
-             
-                alert(`Errores: ${data.errores.join(', ')}`);
-            } else {
-               
-                alert(data.mensaje);
-                window.location.href = "../index.html";
-            }
+        let response, data;
+        try {
+            response = await fetch(`/validar?usuario=${encodeURIComponent(usuario)}&clave=${encodeURIComponent(clave)}`);
+            data = await response.json();
+        } catch (e) {
+            alert('Error de conexión o respuesta inválida del servidor.');
+            return;  
         }
 
+        if (response.status === 400) {
+            alert(`Errores: ${data.errores ? data.errores.join(', ') : 'Error desconocido'}`);
+        } else if (response.ok) {
+            alert(data.mensaje);
+            navigate('/home');
+        } else {
+            alert('Error inesperado. Intente nuevamente.');
+        }
+    }
 
-  return (
-    <>
-         <div class="contenedorr-login">
-        <h2>Iniciar Sesión</h2>
-        <form onsubmit="validarFormulario(event)" class="formulario-login">
-            <div class="campo">
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required/>
+    return (
+        <>
+            <div className="contenedor-login">
+                <h2>Iniciar Sesión</h2>
+                <form onSubmit={validarFormulario} className="formulario-login">
+                    <div className="campo">
+                        <label htmlFor="usuario">Usuario:</label>
+                        <input type="text" id="usuario" name="usuario" required />
+                    </div>
+                    <div className="campo">
+                        <label htmlFor="clave">Contraseña:</label>
+                        <input type="password" id="clave" name="clave" required />
+                    </div>
+                    <button type="submit" className="boton">Entrar</button>
+                </form>
+                <p className="link">
+                    ¿No tenés cuenta? <Link to="/Registro">Registrate</Link>
+                </p>
             </div>
-
-            <div class="campo">
-                <label for="clave">Contraseña:</label>
-                <input type="password" id="clave" name="clave" required/>
-            </div>
-
-            <button type="submit" class="boton">Entrar</button>
-        </form>
-
-        <p class="link">
-            ¿No tenés cuenta? <a href="registro.html">Registrate acá</a>
-        </p>
-    </div>
-    </>
-  )
+        </>
+    )
 }
 
 export default Login
