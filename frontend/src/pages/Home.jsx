@@ -58,8 +58,9 @@ const Home = () => {
   padding: '20px',
   border: '1px solid #ccc',
   borderRadius: '10px',
-  zIndex: 1000
-}}>
+  zIndex: 1000,
+  color: 'black',
+  backgroundColor: 'rgba(255, 255, 255, 0.9)',}}>
   <h2>Perfil de Usuario</h2>
   <p><strong>Usuario:</strong> {usuarioInfo.usuario}</p>
   <p><strong>Contraseña:</strong> {usuarioInfo.clave}</p>
