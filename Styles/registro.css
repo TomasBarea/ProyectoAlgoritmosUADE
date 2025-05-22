@@ -100,14 +100,14 @@ margin: -5px;
 
 
 
-.contenedorr-login {
+.contenedor {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
-.contenedorr-login h2 {
+.contenedor h2 {
     font-size: 30px;
     margin-bottom: 30px;
 }
@@ -119,12 +119,10 @@ form {
     align-items: center;
 }
 
-.campo {
-    width: 100%;
-}
 
-.campo label {
-    font-size: 20px;
+.campo1, .campo2, .campo3, .campo4 {
+    width: 100%;
+    font-size: 18px;
 }
 
 input {

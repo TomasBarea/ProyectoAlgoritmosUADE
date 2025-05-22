@@ -2,19 +2,50 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+ <title>Registrarse</title>
+     <link rel="stylesheet" href="/Styles/registro.css">
 
 </head>
 <body>
+        <nav class="nav">
+  
+        <ul class="links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./Pages/sobreNos.html">Sobre Nosotros</a></li>
+            <li><a href="./Pages/contacto.html">Contacto</a></li>
+        </ul>
+        <h4 class="titulo">HYPE RESELLERS</h4>
+        <ul class="items">
+            <li><a>Usuario</a></li>
+            <li> <div id="cartContainer" style="position: relative; display: inline-block;">
+                <img src="/static/img/shopping-cart_4058250.png" id="cartIcon" alt="Carrito" style="width: 30px; cursor: pointer;">
+                <span id="cartCount" style="
+                  position: absolute;
+                  top: -8px;
+                  right: -8px;
+                  background: red;
+                  color: white;
+                  border-radius: 50%;
+                  padding: 2px 6px;
+                  font-size: 12px;
+                  display: none;
+                ">0</span>
+              </div>
+            </li>
+        </ul>
+    </nav>
 <div class="contenedor">
     <h2>Registrate</h2>
     <form action="/registro" method="POST" class="formulario-registro">
     <div class="campo1">
         <label for="usuario">Usuario:</label>
+        <br>
         <input type="text" id="usuario" name="usuario" required>
     </div>
 
     <div class="campo2">
         <label for="email">Correo electrónico:</label>
+        <br>
         <input type="email" id="email" name="email" required>
    
    
@@ -26,6 +57,7 @@
     
     <div class="campo3">
         <label for="clave">Contraseña:</label>
+        <br>
         <input type="password" id="clave" name="clave" required>
     
     
@@ -35,7 +67,8 @@
     
     
     <div class="campo4">
-        <label for="confirmar">confirmar contraseña:</label>
+        <label for="confirmar">Confirmar contraseña:</label>
+        <br>
             <input type="password" id="confirmar" name="confirmar" required>
     
     
