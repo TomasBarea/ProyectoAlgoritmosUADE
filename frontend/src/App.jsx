@@ -11,9 +11,9 @@ import SobreNosotros from './pages/SobreNosotros';
 function App() {
   return (
     <Router>
-      <nav className="nav">
-        {/* Navigation links */}
-      </nav>
+      {/* <nav className="nav">
+        {}
+      </nav> */}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/registro" element={<Registro/>} />

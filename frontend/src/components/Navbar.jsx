@@ -1,54 +1,39 @@
-import cartIcon from '../assets/icons/shopping-cart_4058250.png'
-
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import PerfilUsuarioModal from './PerfilUsuarioModal';
+import Carrito from './Carrito';
+import icon from '../assets/icons/shopping-cart_4058250.png';
+import '../styles/Navbar.css'; 
 
 const Navbar = () => {
+  const [mostrarPerfil, setMostrarPerfil] = useState(false);
+  const [mostrarCarrito, setMostrarCarrito] = useState(false);
+
+  const usuario = localStorage.getItem('usuario');
+  const clave = localStorage.getItem('clave');
+
   return (
-         <nav className="nav">
-        <ul className="links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
-          <li><Link to="/contacto">Contacto</Link></li>
-        </ul>
-        <h4 className="titulo">HYPE RESELLERS</h4>
-        <ul className="items">
-          <li>
-            {/* <button onClick={() => document.getElementById('modalPerfil').style.display = 'block'}>
-              Ver Perfil
-            </button>
+    <nav className="nav">
+      <h1 className="titulo">HYPE RESELLERS</h1>
+      <ul className="links">
+        <li><Link to="/home">Inicio</Link></li>
+        <li><Link to="/compras">Compras</Link></li>
+        <li><button onClick={() => setMostrarPerfil(true)}>Perfil</button></li>
+        <li className="iconoCarrito"><button onClick={() => setMostrarCarrito(!mostrarCarrito)}><img src= {icon}/><span id="cartCount" className="cart-count">0</span>
+</button></li>
+      </ul>
 
-            <div id="modalPerfil" style={{display: 'none',position: 'fixed',top: '20%',left: '50%',transform: 'translate(-50%, -20%)',backgroundColor: 'white',padding: '20px',border: '1px solid #ccc',borderRadius: '10px',zIndex: 1000}}>
-              <h2>Perfil de Usuario</h2>
-              <p><strong>Usuario:</strong> {usuarioInfo.usuario}</p>
-              <p><strong>Contraseña:</strong> {usuarioInfo.clave}</p>
-              <button onClick={() => document.getElementById('modalPerfil').style.display = 'none'}>Cerrar</button>
-            </div>
-          </li>
-          <li>
-            <div id="cartContainer" style={{ position: "relative", display: "inline-block" }}>
-              <img
-                src={cartIcon}
-                id="cartIcon"
-                alt="Carrito"
-                style={{ width: "30px", cursor: "pointer" }}
-              />
-              <span id="cartCount" style={{
-                position: "absolute",
-                top: "-8px",
-                right: "-8px",
-                background: "red",
-                color: "white",
-                borderRadius: "50%",
-                padding: "2px 6px",
-                fontSize: "12px",
-                display: "none"
-              }}>0</span>
-            </div> */}
-          </li>
-        </ul>
-      </nav>
-  )
-}
+      {mostrarPerfil && (
+        <PerfilUsuarioModal
+          usuario={usuario}
+          clave={clave}
+          onClose={() => setMostrarPerfil(false)}
+        />
+      )}
 
-export default Navbar
+      {mostrarCarrito && <Carrito />}
+    </nav>
+  );
+};
+
+export default Navbar;

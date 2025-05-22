@@ -22,8 +22,8 @@ fetch("http://localhost:5000/api/filtrar?precio=500")
     productos.forEach(p => {
       const div = document.createElement("div");
       div.innerHTML = `
-        <div>
-          <img src="${p.imagen}" alt="${p.nombre}" style="width: 200px;">
+        <div style="color: #0000; background-color: #fff; border-radius: 10px; padding: 10px; margin: 10px; text-align: center;">
+          <img src="${p.imagen}" alt="${p.nombre}" style="width: 45%;">
           <p>${p.nombre}</p>
           <p>$${p.precio}</p>
           <p>${p.descripcion}</p>

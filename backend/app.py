@@ -18,6 +18,18 @@ def filtrar():
         return jsonify(filtrados)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+
+@app.route('/api/productos', methods=['GET'])
+def obtener_productos():
+    try:
+        file_path = os.path.join(os.path.dirname(__file__), 'productos.json')
+        with open(file_path, encoding='utf-8') as f:
+            productos = json.load(f)
+        return jsonify(productos)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @app.route('/api/validar', methods=['GET'])
 def validar():
