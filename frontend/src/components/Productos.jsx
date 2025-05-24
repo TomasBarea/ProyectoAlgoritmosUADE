@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../styles/Productos.css'; 
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -13,7 +14,7 @@ const Productos = () => {
   };
 
   useEffect(() => {
-    cargarTodos(); // carga inicial
+    cargarTodos(); 
   }, []);
 
   const filtrar = () => {

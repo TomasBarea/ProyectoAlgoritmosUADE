@@ -17,12 +17,12 @@ const Home = () => {
   return (
     <>
       <Navbar />
-{
-/* 
-      <section className="portada">
-        <img src={Portada} alt="Portada" />
-      </section> */   
-      }
+
+
+      {/* <section className="portada">
+        <img src="/img/photo-1552346154-21d32810aba3.jpeg" alt="Portada" />
+      </section>     */}
+      
       <Productos/>
 
     </>

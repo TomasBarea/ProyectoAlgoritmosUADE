@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PerfilUsuarioModal from './PerfilUsuarioModal';
 import Carrito from './Carrito';
-import icon from '../assets/icons/shopping-cart_4058250.png';
+import icon from '/icons/shopping-cart_4058250.png';
 import '../styles/Navbar.css'; 
 
 const Navbar = () => {

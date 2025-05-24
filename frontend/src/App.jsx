@@ -7,6 +7,7 @@ import Registro from './pages/Registro';
 import Home from './pages/Home';
 import Contacto from './pages/Contacto';
 import SobreNosotros from './pages/SobreNosotros';
+import Compras from './pages/Compras';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </nav> */}
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/compras" element={<Compras />} />
         <Route path="/registro" element={<Registro/>} />
         <Route path="/home" element={<Home/>} />
         <Route path="/sobre-nosotros" element={<SobreNosotros/>} />
