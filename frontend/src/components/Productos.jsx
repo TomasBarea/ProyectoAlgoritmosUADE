@@ -27,7 +27,9 @@ const Productos = () => {
   const agregarAlCarrito = (producto) => {
     const nuevoCarrito = [...carrito, producto];
     setCarrito(nuevoCarrito);
+    const total = nuevoCarrito.reduce((sum, p) => sum + p.precio, 0);
     localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
+    localStorage.setItem('totalCarrito', total);
     alert(`${producto.nombre} agregado al carrito`);
 
     const cartCount = document.getElementById('cartCount');

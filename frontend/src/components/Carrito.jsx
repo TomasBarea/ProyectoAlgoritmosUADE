@@ -11,9 +11,9 @@ const Carrito = () => {
   }, []);
 
   const guardarTotal = () => {
-    localStorage.setItem("carritoTotal", total);
+    localStorage.setItem("totalCarrito", total);
   };
-
+ 
   return (
     <div id="cartSidebar" className="cart-sidebar">
       <div className="cart-header">
