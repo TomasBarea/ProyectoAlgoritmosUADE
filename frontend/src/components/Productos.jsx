@@ -48,8 +48,8 @@ const Productos = () => {
           value={precio}
           onChange={(e) => setPrecio(e.target.value)}
         />
-        <button onClick={filtrar}>Filtrar</button>
-        <button onClick={cargarTodos} style={{ marginLeft: '10px' }}>
+        <button onClick={filtrar} className="filtrar">Filtrar</button>
+        <button onClick={cargarTodos} className="reiniciar">
           Reiniciar Filtro
         </button>
       </section>

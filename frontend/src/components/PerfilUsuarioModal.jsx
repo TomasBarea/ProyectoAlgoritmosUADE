@@ -16,20 +16,11 @@ const PerfilUsuarioModal = ({ usuario, clave, onClose }) => {
           <strong>Contraseña:</strong>{' '}
           {mostrarClave ? clave : '*'.repeat(clave.length)}
           <button
-            onClick={alternarClave}
-            style={{
-              marginLeft: '10px',
-              background: 'none',
-              border: 'none',
-              color: 'blue',
-              cursor: 'pointer',
-              textDecoration: 'underline'
-            }}
-          >
+            onClick={alternarClave} className="mostrar">
             {mostrarClave ? 'Ocultar' : 'Mostrar'}
           </button>
         </p>
-        <button onClick={onClose}>Cerrar</button>
+        <button onClick={onClose} className="cerrar">Cerrar</button>
       </div>
     </div>
   );

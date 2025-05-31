@@ -1,17 +1,22 @@
 import React from 'react'
+import '../styles/Seguimiento.css';
+import Navbar from '../components/Navbar';
 
 const Seguimiento = () => {
   return (
-      <>    
-        <div className="container">
-            <h1>Seguimiento de envios</h1>
-            <p>Estado de envio:</p>
-            <p>Armado</p>
-            <p>Despachado</p>
-            <p>En camino</p>
-            <p>Entregado</p>
+    <>
+      <Navbar/>
+
+      <div className="container">
+        <h1>Seguimiento de envíos</h1>
+        <div className="estado">
+          <p>Armado</p>
+          <p className="actual">Despachado</p>
+          <p>En camino</p>
+          <p>Entregado</p>
         </div>
-      </>
+      </div>
+    </>
 
   )
 }

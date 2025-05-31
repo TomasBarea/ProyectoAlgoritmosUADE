@@ -1,0 +1,76 @@
+/* Contenedor principal de compra */
+.compraContainer {
+  max-width: 400px;
+  margin: 3rem auto;
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: #000;
+}
+
+
+.compraContainer h1 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.compraContainer h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+
+.compraContainer .datos label,
+.compraContainer .zona label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.compraContainer .datos input,
+.compraContainer .zona select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.compraContainer .resumen {
+  margin-top: 1.5rem;
+}
+
+.compraContainer .resumen p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #000;
+}
+
+
+.compraContainer button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.compraContainer button:hover {
+  background-color: #333;
+}
+
+.compraContainer button a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
