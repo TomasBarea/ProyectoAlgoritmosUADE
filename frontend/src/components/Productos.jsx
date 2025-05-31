@@ -41,7 +41,7 @@ const Productos = () => {
 
   return (
     <div>
-      <section className="filtro-precio" style={{ margin: "20px 0" }}>
+      <section className="filtro-precio">
         <label>Filtrar por precio (máximo): $</label>
         <input
           type="number"

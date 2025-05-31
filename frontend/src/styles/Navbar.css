@@ -4,223 +4,8 @@ body {
       font-family: Arial, Helvetica, sans-serif;
 }
 
-  /* .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f1f1f1;
-  padding: 10px;
-  color: rgb(0, 0, 0);
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-.titulo {
-  font-size: 40px;
-  font-weight: bold;
-  margin: 0px;
-}
-
-
-.links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-}
-
-.links a,
-.links button {
-  text-decoration: none;
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  transition: color 0.3s;
-  color: black;
-}
-
-.links a:hover,
-.links button:hover {
-  color: rgb(0, 0, 0);
-}
-
-
-
-.cart-count {
-position: relative;
-  top: -20px;
-  right: 5px;
-  background: rgb(255, 0, 0);
-  color: rgb(255, 255, 255);
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-
-.iconoCarrito button img{
-    width: 27px;
-    height: 27px;
-    padding-left: 10px;
-}
-
-
-.modal-contenido {
-    width: 250px;
-
-}
-
-.modal-contenido h3 {
-    font-size: 22px;
-    margin: 5px;
-    margin-left: 0px;
-    margin-bottom: 15px;    
-    padding-left: 10px;
-}
-
-.modal-contenido p {
-    margin: 0px;
-    margin-bottom: 5px;
-    padding-left: 10px;
-}
-
-
-.mostrar {
-    border: none;
-    background:none;
-    color: rgba(58, 58, 58, 0.808);
-}
-
-.mostrar:hover {
-    color: rgb(0, 0, 0);
-}
-
-.cerrar {
-margin-top: 15px;
-border: none;
-background-color: black;
-color: #fff;
-border-radius: 3px;
-width: 100%;
-padding-top: 3px;
-padding-bottom: 3px;
-}
-
-
-.cart-header {
-    max-height:200px ;
-}
-
-.cart-header h2{
-    font-size: 22px;
-    margin: 5px;
-    margin-left: 0px;
-    margin-bottom: 5px;    
-    padding-left: 10px;
-}
-
-.cart-header span {
-    position: absolute;
-    right: 20px;
-}
-
-.cart-header p {
-    margin: 0px;
-    margin-bottom: 5px;
-
-    text-align: left;
-    width: 100%;
-}
-
-.cart-header span {
-    font-weight: 600;
-}
-
-
-
-
-
-
-
-.cart-sidebar {
-  width: 300px;
-  height: 200px; 
-  background: none;
-  color: rgb(0, 0, 0);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-}
-
-
-.cart-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart-sidebar ul {
-  flex-grow: 1;
-  overflow-y: auto;
-  max-height: 60vh; 
-  background: none;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-}
-
-
-.cart-sidebar ul::-webkit-scrollbar {
-  width: 6px;
-}
-.cart-sidebar ul::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 10px;
-}
-
-.cart-sidebar ul li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-.cart-header a {
-    width: 100%;
-}
-
-
-.finalizar-compra-btn {
-border: none;
-background-color: black;
-color: #fff;
-border-radius: 3px;
-width: 100%;
-padding-top: 3px;
-padding-bottom: 3px;
-}
-
-
-
-
-.filtrar-precio{
-    background-color: aqua;
-} */
-
-
-
-
-
-
-
-/* Navbar */
 .nav {
-  position: relative; /* clave para que los popups se anclen al navbar */
+  position: relative; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -263,7 +48,6 @@ padding-bottom: 3px;
 
 .iconoCarrito img {
   width: 24px;
-  /* filter: invert(1); */
 }
 
 .cart-count {
@@ -279,7 +63,7 @@ padding-bottom: 3px;
 .modal {
   position: absolute;
   top: 70px; 
-  right: 20px; /* ajustá para que aparezca cerca del botón Perfil */
+  right: 20px; 
   background-color: #f5f5f5;
   color: #000;
   padding: 1rem;
@@ -289,10 +73,10 @@ padding-bottom: 3px;
   z-index: 20;
 }
 
-/* Popup para el Carrito */
+
 .cart-sidebar {
   position: absolute;
-  top: 70px; /* igual que el modal */
+  top: 70px; 
   right: 20px;
   background-color: #f5f5f5;
   color: #000;
@@ -301,11 +85,11 @@ padding-bottom: 3px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 20;
-  max-height: 300px; /* ajustá según lo que necesites */
+  max-height: 300px; 
   overflow-y: auto;
 }
 
-/* Ajuste del modal-contenido (para Perfil) */
+
 .modal-contenido h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -381,4 +165,18 @@ padding-bottom: 3px;
 .close-sidebar {
   position: absolute;
   right: 20px;
+}
+
+.portada img {
+    object-fit: cover;
+    width: 100%;
+    height: 500px;
+}
+
+
+.filtro-precio {
+    background-color: #fff;
+    margin: 0px;
+    padding: 20px;
+    padding-left: 5px;
 }

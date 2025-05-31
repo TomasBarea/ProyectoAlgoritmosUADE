@@ -30,7 +30,6 @@ const Compras = () => {
 
     <div className="compraContainer">
 
-    <h1>HYPE RESELLERS</h1>
       <h2>Información de compra</h2>
       <div className="datos">
         <label>Ingresá tu teléfono</label>

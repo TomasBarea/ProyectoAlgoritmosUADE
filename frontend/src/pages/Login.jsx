@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
-import Navbar from '../components/Navbar';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -36,8 +35,7 @@ const Login = () => {
 
     return (
         <>
-        <Navbar/>
-        
+
             <div className="contenedor-login">
                 <h1>HYPE RESELLERS</h1>
                 <h2>Iniciar Sesión</h2>

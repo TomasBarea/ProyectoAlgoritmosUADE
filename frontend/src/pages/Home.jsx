@@ -19,9 +19,9 @@ const Home = () => {
       <Navbar />
 
 
-      {/* <section className="portada">
+      <section className="portada">
         <img src="/img/photo-1552346154-21d32810aba3.jpeg" alt="Portada" />
-      </section>     */}
+      </section>    
       
       <Productos/>
 
