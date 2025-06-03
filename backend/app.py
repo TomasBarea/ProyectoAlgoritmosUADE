@@ -71,5 +71,36 @@ def cart():
             return jsonify({"message": "Item removed", "cart": cart_data})
         return jsonify({"error": "Item not found"}), 404
 
+
+
+@app.route('/api/stock/<int:producto_id>', methods=['PUT'])
+def actualizar_stock(producto_id):
+    data = request.get_json()
+    nuevo_stock = data.get('stock')
+
+    if nuevo_stock is None or not isinstance(nuevo_stock, int):
+        return jsonify({"error": "Stock inválido"}), 400
+
+    file_path = os.path.join(os.path.dirname(__file__), 'productos.json')
+
+    with open(file_path, encoding='utf-8') as f:
+        productos = json.load(f)
+
+    producto_encontrado = False
+    for p in productos:
+        if p['id'] == producto_id:
+            p['stock'] = nuevo_stock
+            producto_encontrado = True
+            break
+
+    if not producto_encontrado:
+        return jsonify({"error": "Producto no encontrado"}), 404
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(productos, f, indent=2, ensure_ascii=False)
+
+    return jsonify({"mensaje": "Stock actualizado"}), 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)
