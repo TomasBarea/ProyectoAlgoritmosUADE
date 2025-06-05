@@ -13,23 +13,44 @@ const Carrito = () => {
   const guardarTotal = () => {
     localStorage.setItem("totalCarrito", total);
   };
- 
+
+
+  const eliminarDelCarrito = (index) => {
+    const nuevoCarrito = [...cart];
+    nuevoCarrito.splice(index, 1);
+    setCart(nuevoCarrito);
+
+    localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
+
+    const nuevoTotal = nuevoCarrito.reduce((sum, p) => sum + p.precio, 0);
+    setTotal(nuevoTotal);
+  };
+
+
+
+
   return (
     <div id="cartSidebar" className="cart-sidebar">
       <div className="cart-header">
         <span className="close-sidebar">&times;</span>
         <h2>Carrito</h2>
-              <ul>
-        {cart.map((item, i) => (
-          <li key={i}>{item.nombre} - ${item.precio}</li>
-        ))}
-      </ul>
-      <p>Total: $<span>{total}</span></p>
-      <a href="/Compras" onClick={guardarTotal}>
-        <button className="finalizar-compra-btn">Finalizar compra!</button>
-      </a>
-    </div>
+        <ul>
+          {cart.map((item, i) => (
+            <li key={i}>
+              {item.nombre} - ${item.precio}
+              <button onClick={() => eliminarDelCarrito(i)} className="btn-borrar">
+                Borrar
+              </button>
+            </li>
+          ))}
+
+        </ul>
+        <p>Total: $<span>{total}</span></p>
+        <a href="/Compras" onClick={guardarTotal}>
+          <button className="finalizar-compra-btn">Finalizar compra!</button>
+        </a>
       </div>
+    </div>
 
   );
 };
