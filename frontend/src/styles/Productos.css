@@ -66,7 +66,7 @@ transition: 0.3s ease;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  height: 450px; 
+  height: auto; 
 }
 
 .producto-card:hover {
@@ -115,7 +115,6 @@ transition: 0.3s ease;
 
 
 .producto-card button {
-  margin-top: auto;
   background-color: #000;
   color: #fff;
   border: none;
@@ -125,9 +124,18 @@ transition: 0.3s ease;
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
   width: 80%;
+  margin-top: 20px;
 }
 
 .producto-card button:hover {
   background-color: #333;
   color: #fff;
+}
+
+
+.producto-card button:disabled {
+  background-color: #aaa; 
+  color: #000000;
+  cursor: not-allowed;
+  opacity: 0.7;
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../styles/Productos.css'; 
+import '../styles/Productos.css';
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -14,8 +14,11 @@ const Productos = () => {
   };
 
   useEffect(() => {
-    cargarTodos(); 
+    cargarTodos();
   }, []);
+
+
+
 
   const filtrar = () => {
     fetch(`http://localhost:5000/api/filtrar?precio=${precio}`)
@@ -24,19 +27,29 @@ const Productos = () => {
       .catch(err => console.error("Error al filtrar:", err));
   };
 
+
+
   const agregarAlCarrito = (producto) => {
-    const nuevoCarrito = [...carrito, producto];
-    setCarrito(nuevoCarrito);
-    const total = nuevoCarrito.reduce((sum, p) => sum + p.precio, 0);
-    localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push(producto);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    const total = carrito.reduce((sum, p) => sum + p.precio, 0);
     localStorage.setItem('totalCarrito', total);
     alert(`${producto.nombre} agregado al carrito`);
 
     const cartCount = document.getElementById('cartCount');
     if (cartCount) {
-      cartCount.textContent = nuevoCarrito.length;
+      cartCount.textContent = carrito.length;
       cartCount.style.display = 'inline-block';
     }
+
+    setProductos(prevProductos =>
+      prevProductos.map(p =>
+        p.id === producto.id
+          ? { ...p, stock: p.stock - 1 }
+          : p
+      )
+    );
   };
 
   return (
@@ -60,9 +73,16 @@ const Productos = () => {
             <div key={p.id} className="producto-card">
               <img src={p.imagen} alt={p.nombre} />
               <h3>{p.nombre}</h3>
+                <p>{p.descripcion}</p>
               <p><strong>Precio:</strong> ${p.precio}</p>
-              <p>{p.descripcion}</p>
-              <button onClick={() => agregarAlCarrito(p)}>Agregar al carrito</button>
+              <p><strong>Stock disponible:</strong> {p.stock}</p>
+          
+              <button
+                onClick={() => agregarAlCarrito(p)}
+                disabled={p.stock === 0}
+              >
+                {p.stock === 0 ? 'Sin stock' : 'Agregar al carrito'}
+              </button>
             </div>
           ))
         ) : (
@@ -74,3 +94,5 @@ const Productos = () => {
 };
 
 export default Productos;
+
+
