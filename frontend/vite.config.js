@@ -9,6 +9,12 @@ export default defineConfig({
     historyApiFallback: true,
     strictPort: true
   },
+  test:{
+    globals:true,
+    environment: 'jsdom',
+    setupFiles: './setupTests.js'
+},
+  
   build: {
     outDir: 'dist'
   }
