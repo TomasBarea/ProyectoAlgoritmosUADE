@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import PerfilUsuarioModal from './PerfilUsuarioModal';
 import Carrito from './Carrito';
 import icon from '/icons/shopping-cart_4058250.png';
+import userIcon from '/icons/8-512.webp';
 import '../styles/Navbar.css'; 
 
 const Navbar = () => {
@@ -16,9 +16,7 @@ const Navbar = () => {
     <nav className="nav">
       <a href='/home'><h1 className="titulo">HYPE RESELLERS</h1></a>
       <ul className="links">
-        <li><Link to="/home">Inicio</Link></li>
-        <li><Link to="/compras">Compras</Link></li>
-        <li><button onClick={() => setMostrarPerfil(true)}>Perfil</button></li>
+        <li><button className='iconUser' onClick={() => setMostrarPerfil(true)}> <img src={userIcon}/></button></li>
         <li className="iconoCarrito"><button onClick={() => setMostrarCarrito(!mostrarCarrito)}><img src= {icon}/><span id="cartCount" className="cart-count">0</span>
 </button></li>
       </ul>

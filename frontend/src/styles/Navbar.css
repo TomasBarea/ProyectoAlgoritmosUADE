@@ -55,6 +55,11 @@ body {
   width: 24px;
 }
 
+.iconUser img {
+  width: 35px;
+  margin-top: 3px;
+}
+
 .cart-count {
   background: rgb(255, 0, 0);
   color: rgb(255, 255, 255);
