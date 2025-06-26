@@ -8,20 +8,15 @@ cd backend
 echo --- Creando entorno virtual ---
 python -m venv venv
 
-echo --- Activando entorno virtual ---
-call venv\Scripts\activate
-
 echo --- Instalando dependencias del backend ---
+call venv\Scripts\activate
 if exist requirements.txt (
     pip install --upgrade pip
     pip install -r requirements.txt
 ) else (
     echo No se encontro requirements.txt
 )
-
-echo --- Iniciando servidor del backend ---
-start cmd /k "cd backend && call venv\Scripts\activate && python app.py"
-
+deactivate
 cd ..
 
 :: =============================
@@ -34,11 +29,17 @@ if exist package.json (
 ) else (
     echo No se encontró package.json
 )
-
-echo --- Iniciando servidor del frontend ---
-start cmd /k "cd frontend && npm run dev"
-
 cd ..
 
-echo === TODO LISTO ===
+:: =============================
+:: INICIAR BACK Y FRONT
+:: =============================
+
+:: Iniciar backend en nueva ventana
+start "Backend" cmd /k "cd backend && call venv\Scripts\activate && python app.py"
+
+:: Iniciar frontend en nueva ventana
+start "Frontend" cmd /k "cd frontend && npm run dev"
+
+echo === SERVIDORES INICIADOS ===
 pause
