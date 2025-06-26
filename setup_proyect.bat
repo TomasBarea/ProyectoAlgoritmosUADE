@@ -1,35 +1,44 @@
 @echo off
 echo === INICIANDO INSTALACION DE DEPENDENCIAS ===
 
-:: Cambiar a carpeta del backend
+:: =============================
+:: BACKEND SETUP
+:: =============================
 cd backend
-echo --- Instalando dependencias de Python (backend) ---
+echo --- Creando entorno virtual ---
 python -m venv venv
-call venv\Scripts\activate
-pip install --upgrade pip
 
-:: Instalar librerías del backend
+echo --- Activando entorno virtual ---
+call venv\Scripts\activate
+
+echo --- Instalando dependencias del backend ---
 if exist requirements.txt (
+    pip install --upgrade pip
     pip install -r requirements.txt
 ) else (
-    echo No se encontró requirements.txt
+    echo No se encontro requirements.txt
 )
 
-:: Volver a raíz
+echo --- Iniciando servidor del backend ---
+start cmd /k "cd backend && call venv\Scripts\activate && python app.py"
+
 cd ..
 
-:: Cambiar a carpeta del frontend
+:: =============================
+:: FRONTEND SETUP
+:: =============================
 cd frontend
-echo --- Instalando dependencias de Node (frontend) ---
-
-:: Instalar paquetes npm
+echo --- Instalando dependencias del frontend ---
 if exist package.json (
     npm install
 ) else (
     echo No se encontró package.json
 )
 
+echo --- Iniciando servidor del frontend ---
+start cmd /k "cd frontend && npm run dev"
+
 cd ..
 
-echo === INSTALACION COMPLETA ===
+echo === TODO LISTO ===
 pause
