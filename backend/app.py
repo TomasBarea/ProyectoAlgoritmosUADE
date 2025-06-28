@@ -10,13 +10,22 @@ CORS(app)
 @app.route('/api/filtrar', methods=['GET'])
 def filtrar():
     try:
-        max_precio = float(request.args.get('precio', 0))
+        precio = float(request.args.get('precio', 0))
+        marca = request.args.get('marca', '').lower()
+
+        print(f"Filtrando por precio: {precio}, marca: {marca}")  
+
         file_path = os.path.join(os.path.dirname(__file__), 'productos.json')
         with open(file_path, encoding='utf-8') as f:
             productos = json.load(f)
-        filtrados = [p for p in productos if p['precio'] < max_precio]
+
+        filtrados = [
+            p for p in productos
+            if p['precio'] < precio and (marca == '' or p['marca'].lower() == marca)
+        ]
         return jsonify(filtrados)
     except Exception as e:
+        print("Error en /api/filtrar:", e)  
         return jsonify({"error": str(e)}), 500
     
 
@@ -45,7 +54,7 @@ def validar():
     if errores:
         return jsonify({"errores": errores}), 400
 
-    return jsonify({"mensaje": "Datos válidos ✅"})
+    return jsonify({"mensaje": "Datos válidos "})
 
 
 cart_data = []
@@ -100,6 +109,41 @@ def actualizar_stock(producto_id):
         json.dump(productos, f, indent=2, ensure_ascii=False)
 
     return jsonify({"mensaje": "Stock actualizado"}), 200
+
+
+@app.route('/api/pedido', methods=['POST'])
+def guardar_pedido():
+    nuevo = request.json 
+    with open('pedidos.json', 'r+', encoding='utf-8') as f:
+        datos = json.load(f)
+        usuario = nuevo['usuario']
+        if usuario not in datos:
+            datos[usuario] = []
+        datos[usuario].append(nuevo)
+        f.seek(0)
+        json.dump(datos, f, indent=2)
+        f.truncate()
+    return jsonify({"mensaje": "Pedido guardado correctamente"})
+
+
+
+def resumen_por_usuario(pedidos):
+    resumen = {}
+    for pedido in pedidos:
+        clave = (pedido["usuario"], pedido["fecha"])  
+        resumen[clave] = resumen.get(clave, 0) + pedido["total"]
+    return resumen
+
+def mostrar_categorias(categorias, nivel=0):
+    for clave, valor in categorias.items():
+        print("  " * nivel + clave)
+        if isinstance(valor, dict):
+            mostrar_categorias(valor, nivel + 1)
+        elif isinstance(valor, list):
+            for prod in valor:
+                print("  " * (nivel + 1) + prod)
+
+
 
 
 if __name__ == '__main__':

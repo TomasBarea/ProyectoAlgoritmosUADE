@@ -1,0 +1,18 @@
+{
+  "facucaro": [
+    {
+      "id": 1,
+      "productos": ["Jordan 1"],
+      "total": 250,
+      "fecha": "2025-06-03"
+    }
+  ],
+  "mariagomez": [
+    {
+      "id": 2,
+      "productos": ["Nike Air Max"],
+      "total": 300,
+      "fecha": "2025-06-01"
+    }
+  ]
+}
