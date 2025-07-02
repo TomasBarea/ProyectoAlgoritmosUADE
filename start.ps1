@@ -15,22 +15,29 @@ if (-not $python) {
 
 # ========== INSTALAR NODE SI NO EXISTE ==========
 $node = Get-Command node -ErrorAction SilentlyContinue
-if (-not $node) {
-    Write-Host "Instalando Node.js..."
-    $nodeUrl = "https://nodejs.org/dist/v18.18.2/node-v18.18.2-x64.msi"
-    $nodeInstaller = "$env:TEMP\node-installer.msi"
-    Invoke-WebRequest -Uri $nodeUrl -OutFile $nodeInstaller
-    Start-Process -Wait -FilePath "msiexec.exe" -ArgumentList "/i `"$nodeInstaller`" /quiet /norestart"
-    Remove-Item $nodeInstaller
+$flag = $env:SETUP_NODE_INSTALLED
 
-    Write-Host "`nReiniciando script en nueva ventana para aplicar instalación de Node.js..."
-    Start-Process powershell -ArgumentList "-NoExit", "-ExecutionPolicy Bypass", "-File `"$PSCommandPath`""
-    exit
+if (-not $node) {
+    if (-not $flag) {
+        Write-Host "Instalando Node.js..."
+        $nodeUrl = "https://nodejs.org/dist/v18.18.2/node-v18.18.2-x64.msi"
+        $nodeInstaller = "$env:TEMP\node-installer.msi"
+        Invoke-WebRequest -Uri $nodeUrl -OutFile $nodeInstaller
+        Start-Process -Wait -FilePath "msiexec.exe" -ArgumentList "/i `"$nodeInstaller`" /quiet /norestart"
+        Remove-Item $nodeInstaller
+
+        Write-Host "`nReiniciando script en nueva ventana para aplicar instalación de Node.js..."
+        $env:SETUP_NODE_INSTALLED = "true"
+        Start-Process powershell -ArgumentList "-NoExit", "-ExecutionPolicy Bypass", "-File `"$PSCommandPath`"", "-WorkingDirectory `"$PWD`"" -Environment @{ SETUP_NODE_INSTALLED = "true" }
+        exit
+    } else {
+        Write-Host "⚠️ Node.js fue instalado pero aún no se reconoce. Por favor, cerrá y reabrí PowerShell manualmente."
+        Pause
+        exit
+    }
 } else {
     Write-Host "Node.js ya está instalado"
 }
-
-Write-Host "`nDEPENDENCIAS BASE INSTALADAS - CONTINUANDO...`n"
 
 # ========== BACKEND ==========
 Write-Host "`n=== CONFIGURANDO BACKEND ==="
