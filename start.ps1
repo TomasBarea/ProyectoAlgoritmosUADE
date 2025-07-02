@@ -24,6 +24,9 @@ if (-not $node) {
     Invoke-WebRequest -Uri $nodeUrl -OutFile $nodeInstaller
     Start-Process -Wait -FilePath "msiexec.exe" -ArgumentList "/i `"$nodeInstaller`" /quiet /norestart"
     Remove-Item $nodeInstaller
+
+    # 🔄 Refrescar PATH sin reiniciar
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 } else {
     Write-Host "✅ Node.js ya está instalado"
 }
