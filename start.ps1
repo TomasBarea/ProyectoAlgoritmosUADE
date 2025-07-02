@@ -25,8 +25,9 @@ if (-not $node) {
     Start-Process -Wait -FilePath "msiexec.exe" -ArgumentList "/i `"$nodeInstaller`" /quiet /norestart"
     Remove-Item $nodeInstaller
 
-    # 🔄 Refrescar PATH sin reiniciar
-    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
+    Write-Host "`n🔁 Reiniciando script en nueva ventana para aplicar instalación de Node.js..."
+    Start-Process powershell -ArgumentList "-NoExit", "-ExecutionPolicy Bypass", "-File `"$PSCommandPath`""
+    exit
 } else {
     Write-Host "✅ Node.js ya está instalado"
 }
