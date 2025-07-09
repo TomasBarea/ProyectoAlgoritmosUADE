@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../styles/Productos.css'; 
+import '../styles/Productos.css';
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -68,7 +68,12 @@ const Productos = () => {
               <h3>{p.nombre}</h3>
               <p><strong>Precio:</strong> ${p.precio}</p>
               <p>{p.descripcion}</p>
-              <button onClick={() => agregarAlCarrito(p)}>Agregar al carrito</button>
+              {/* <button onClick={() => agregarAlCarrito(p)}>Agregar al carrito</button> */}
+              <button onClick={() => agregarAlCarrito(p)}
+                disabled={p.stock === 0}
+              >
+                {p.stock === 0 ? 'Sin stock' : 'Agregar al carrito'}
+              </button>
             </div>
           ))
         ) : (

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Registro.css';
+
 
 const Registro = () => {
   const [usuario, setUsuario] = useState('');
@@ -46,34 +48,43 @@ const Registro = () => {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: 'auto' }}>
-      <h2>Registro</h2>
-      <input
-        type="text"
-        placeholder="Usuario"
-        value={usuario}
-        onChange={(e) => setUsuario(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Correo electrónico"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        value={clave}
-        onChange={(e) => setClave(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Repetir contraseña"
-        value={repetirClave}
-        onChange={(e) => setRepetirClave(e.target.value)}
-      />
-      <button onClick={handleRegistro}>Registrarse</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    
+
+    <div className="boxRegistro">
+      <img src="/img/fondoZapa.jpeg" />
+      <div className="inputs">
+        <h2>Registro HYPE RESELLERS</h2>
+        <input
+          type="text"
+          placeholder="Usuario"
+          value={usuario}
+          onChange={(e) => setUsuario(e.target.value)}
+        />
+        <br></br>
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br></br>
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={clave}
+          onChange={(e) => setClave(e.target.value)}
+        />
+        <br></br>
+        <input
+          type="password"
+          placeholder="Repetir contraseña"
+          value={repetirClave}
+          onChange={(e) => setRepetirClave(e.target.value)}
+        />
+        <br></br>
+        <button onClick={handleRegistro}>Registrarse</button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
     </div>
   );
 };

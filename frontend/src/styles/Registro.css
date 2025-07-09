@@ -1,0 +1,48 @@
+
+
+.boxRegistro {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.boxRegistro img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.inputs {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 100px;
+}
+
+.inputs h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.inputs input {
+    height: 40px;
+    padding: 0px;
+    margin: 10px;
+    width: 100%;
+    background-color: #f6f6f6;
+    border: none;
+    border-radius: 3px;
+
+}
+
+.inputs button {
+    width: 100%;
+    margin: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    height: 30px;
+    border-radius: 3px;
+
+}

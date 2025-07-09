@@ -32,7 +32,6 @@ const Carrito = () => {
   return (
     <div id="cartSidebar" className="cart-sidebar">
       <div className="cart-header">
-        <span className="close-sidebar">&times;</span>
         <h2>Carrito</h2>
         <ul>
           {cart.map((item, i) => (

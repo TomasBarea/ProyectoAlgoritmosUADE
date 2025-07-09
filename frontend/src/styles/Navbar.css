@@ -202,3 +202,7 @@ body {
   background: none;
   color: #424242;
 }
+
+.iconUser {
+  filter: brightness(50%);
+}

@@ -14,30 +14,30 @@
         "marca": "Nike",
         "precio": 1900,
         "stock": 5,
-        "imagen": "/img/DunkSB_json.jpg",
+        "imagen": "/img/nikedunk.png",
         "descripcion": "Colaboración única con Ben & Jerry’s, colorido diseño y packaging especial."
     },
     {
         "id": 3,
-        "nombre": "Adidas yeezy boost 700 V3",
+        "nombre": "Adidas Yeezy Boost 700 V3",
         "marca": "adidas",
         "precio": 100,
         "stock": 8,
-        "imagen": "/img/Adidas_json.webp",
+        "imagen": "/img/yeezy.png",
         "descripcion": "Zapatilla futurista con diseño minimalista y gran comodidad."
     },
     {
         "id": 4,
-        "nombre": "Nike jordan 4 fire red 2020 ",
+        "nombre": "Nike jordan 4 Fire Red 2020 ",
         "marca": "Nike",
         "precio": 200,
         "stock": 12,
-        "imagen": "/img/Jordan4_json.webp",
+        "imagen": "/img/jordan4firered.png",
         "descripcion": "Clásicas Jordan 4 con el icónico color Fire Red, reeditadas en 2020."
     },
     {
         "id": 5,
-        "nombre": "adidas Forum Bad Bunny",
+        "nombre": "Adidas Forum Bad Bunny",
         "marca": "adidas",
         "precio": 620, 
         "stock": 7,
@@ -46,7 +46,7 @@
     },
     {
         "id": 6,
-        "nombre": "Vans knu skool scar",
+        "nombre": "Vans Knu skool scar",
         "marca": "vans",
         "precio": 120,
         "stock": 15,
@@ -55,16 +55,16 @@
     },
     {
         "id": 7,
-        "nombre": "Jordan 4 Black cat",
+        "nombre": "Jordan 4 Black Cat",
         "marca": "Nike",
         "precio": 400,
         "stock": 3,
-        "imagen": "/img/Jordan4bc_json.jpg",
+        "imagen": "/img/blackcat.png",
         "descripcion": "Zapatillas completamente negras, elegantes y versátiles para cualquier ocasión."
     },
     {
         "id": 8,
-        "nombre": "Nike air force 1 Travis scott",
+        "nombre": "Nike Air Force 1 Travis Scott",
         "marca": "Nike",
         "precio": 300,
         "stock": 6,
@@ -73,7 +73,7 @@
     },
     {
         "id": 9,
-        "nombre": "Nike dunk Low Off-White Futura UNC",
+        "nombre": "Nike Dunk Low Off-White Futura UNC",
         "marca": "nike",
         "precio": 5200,
         "stock": 0,
