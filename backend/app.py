@@ -7,6 +7,8 @@ import re
 app = Flask(__name__)
 CORS(app)
 
+#                                       Filtro de busqueda
+
 @app.route('/api/filtrar', methods=['GET'])
 def filtrar():
     try:
@@ -39,7 +41,8 @@ def obtener_productos():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
+    #                               Login, tenga nombre de usuario y clave    
+    
 @app.route('/api/validar', methods=['GET'])
 def validar():
     usuario = request.args.get('usuario', '')
@@ -58,6 +61,9 @@ def validar():
 
 
 cart_data = []
+#           POST: Agrega un ítem al carrito.
+#           GET: Devuelve el contenido actual del carrito.
+#           DELETE: Elimina un ítem del carrito si existe.
 
 @app.route('/api/cart', methods=['POST', 'GET', 'DELETE'])
 def cart():
@@ -126,7 +132,7 @@ def guardar_pedido():
     return jsonify({"mensaje": "Pedido guardado correctamente"})
 
 
-
+            # Resumen de lo gastado por usuario y fecha
 def resumen_por_usuario(pedidos):
     resumen = {}
     for pedido in pedidos:
